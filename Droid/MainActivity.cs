@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using ZXing.Mobile;
 
 namespace ScannerView.Demo.Droid
 {
@@ -18,7 +19,7 @@ namespace ScannerView.Demo.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-
+			MobileBarcodeScanner.Initialize (Application);
 			LoadApplication (new App ());
 		}
 	}
