@@ -18,8 +18,6 @@ namespace ScannerView.Droid
 
 			if (Control == null && e.NewElement != null) {
 				XZScannerView= new ZXingScannerView(this.Context);
-
-				//ScannerView.CancelButtonText = e.NewElement.CancelButtonText;
 				XZScannerView.UseCustomOverlayView = false;
 
 				var options = new MobileBarcodeScanningOptions ();
@@ -28,6 +26,26 @@ namespace ScannerView.Droid
 					ZXing.BarcodeFormat.QR_CODE 
 				};
 				this.SetNativeControl (XZScannerView);
+			}
+			base.OnElementChanged(e);
+
+			if (e.OldElement == null && e.NewElement != null) {
+				XZScannerView= new ZXingScannerView(this.Context);
+				XZScannerView.UseCustomOverlayView = false;
+				XZScannerView.FlashButtonText = ((ScannerView)e.NewElement).TorchButtonText;
+				XZScannerView.Layer.CornerRadius =((ScannerView) e.NewElement).CornerRadius;
+				XZScannerView.CancelButtonText=((ScannerView) e.NewElement).CancelButtonText;
+				XZScannerView.OnCancelButtonPressed += () => {
+					if (((ScannerView)e.NewElement).OnCancelPressed!=null) {
+						((ScannerView)e.NewElement).OnCancelPressed();
+					}
+				};
+				AvScannerView.BottomText = ((ScannerView)e.NewElement).BottomText;
+				//AvScannerView.CustomOverlayView = ((ScannerView)e.NewElement).CustomOverlayView;
+				AvScannerView.UseCustomOverlayView = ((ScannerView)e.NewElement).UseCustomOverlayView;
+				AvScannerView.Torch (((ScannerView)e.NewElement).UseTorche);
+				AvScannerView.ClipsToBounds = true;
+				SetNativeControl (AvScannerView);
 			}
 			base.OnElementChanged(e);
 		}

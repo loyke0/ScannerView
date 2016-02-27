@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.1">
+       <id>FormsScannerView</id>
+       <version>0.1.0</version>
+       <title>Barcode scanner Control Plugin for Xamarin.Forms</title>
+       <authors>Loic Otten</authors>
+       <owners>Loic Otten</owners>
+       <licenseUrl>https://github.com/loyke0/ScannerView/blob/master/LICENCE.md</licenseUrl>
+       <projectUrl>https://github.com/loyke0/ScannerView</projectUrl>
+       <requireLicenseAcceptance>false</requireLicenseAcceptance>
+       <description>
+          Barcode scanner for your Xamarin.Forms project.
+       </description>
+       <summary>Barcode scanner for your Xamarin.Forms project.</summary>
+       <tags>xamarin, pcl, android, xamarin.forms, ios</tags>
+       <dependencies>
+         <dependency id="Xamarin.Forms" version="2.0.1.6505" />
+       </dependencies>
+   </metadata>
+   <files>
+      <!--Core-->
+     <file src="/FloatingLabelEntry/bin/Release/ScannerView.dll" target="lib/portable-MonoAndroid10+Xamarin.iOS10/ScannerView.dll" />
+     
+     <!--Xamarin.Android-->
+     <file src="/FloatingLabelEntry.Droid/bin/Release/ScannerView.Android.dll" target="lib/MonoAndroid10/ScannerView.Android.dll" />
+     <file src="/FloatingLabelEntry/bin/Release/ScannerView.dll" target="lib/MonoAndroid10/ScannerView.dll" />
+
+     <!--Xamarin.iOSUnified-->
+     <file src="/FloatingLabelEntry.IOS/bin/Release/ScannerView.IOS.dll" target="lib/Xamarin.iOS10/ScannerView.IOS.dll" />
+     <file src="/FloatingLabelEntry/bin/Release/ScannerView.dll" target="lib/Xamarin.iOS10/ScannerView.dll" />      
+   </files>
+</package>
